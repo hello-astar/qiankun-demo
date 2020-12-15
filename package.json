@@ -1,0 +1,28 @@
+{
+  "name": "qianduan-micro",
+  "version": "1.0.0",
+  "description": "a demo for qiankun",
+  "main": "index.js",
+  "scripts": {
+    "install": "npm-run-all --serial install:main install:micro-react install:micro-vue",
+    "serve": "node ./bin/start.js && npm-run-all --parallel serve:*",
+    "install:main": "cd main && rm -rf node_modules && npm install",
+    "install:micro-react": "cd micro-react && rm -rf node_modules && npm install",
+    "install:micro-vue": "cd micro-vue && rm -rf node_modules && npm install",
+    "serve:main": "cd main && npm run serve",
+    "serve:micro-react": "cd micro-react && npm run start",
+    "serve:micro-vue": "cd micro-vue && npm run serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "qiankun"
+  ],
+  "author": "astar",
+  "license": "ISC",
+  "dependencies": {
+    "vue-router": "^3.4.9"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  }
+}
