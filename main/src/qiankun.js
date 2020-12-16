@@ -2,7 +2,8 @@ import {
   registerMicroApps,
   addGlobalUncaughtErrorHandler,
   start,
-  initGlobalState
+  initGlobalState,
+  setDefaultMountApp
 } from 'qiankun'
 
 export default function () {
@@ -61,5 +62,8 @@ export default function () {
     // state: 变更后的状态; prev 变更前的状态
     console.log(state, prev)
   })
+
+  setDefaultMountApp('/vue')
+
   start()
 }
