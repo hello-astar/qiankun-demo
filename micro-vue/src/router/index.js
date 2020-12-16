@@ -1,12 +1,8 @@
-import VueRouter from 'vue-router';
-
 export const appRouter = [
   { path: '/', redirect: '/index' },
   { name: 'micro-vue', path: '/index', component: () => import('@/views/home.vue'), meta: { title: 'vue子菜单' } }
 ]
 
-export default new VueRouter({
-  routes: [
-    ...appRouter
-  ]
-})
+export default [
+  ...appRouter
+]

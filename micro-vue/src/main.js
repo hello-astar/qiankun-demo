@@ -1,10 +1,12 @@
 /* eslint-disable no-undef */
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router/index.js'
+import routerConfig from './router/index.js'
 import VueRouter from 'vue-router';
 
 let instance = null
+let router = null
+
 if (window.__POWERED_BY_QIANKUN__) {
   // 动态设置 webpack publicPath，防止资源加载出错
   __webpack_public_path__ = window.__INJECTED_PUBLIC_PATH_BY_QIANKUN__
@@ -19,6 +21,9 @@ function render (props) {
   Vue.config.productionTip = false
   
   Vue.use(VueRouter);
+  router = new VueRouter({
+    routes: routerConfig
+  })
 
   instance = new Vue({
     router,
@@ -34,14 +39,15 @@ if (!window.__POWERED_BY_QIANKUN__) {
 }
 
 export async function bootstrap () {
+  console.log('[vue] vue app bootstraped')
 }
 
 export async function mount (props) {
-  console.log('通过props传递信息', props.app)
-  props.onGlobalStateChange((state, prev) => {
+  console.log('通过props传递信息', props)
+  props.onGlobalStateChange && props.onGlobalStateChange((state, prev) => {
     console.log(state, prev)
   })
-  props.setGlobalState({ msg: '子应用修改globalstate' })
+  props.setGlobalState && props.setGlobalState({ msg: 'vue子应用修改globalstate' })
   render(props)
 }
 
@@ -50,5 +56,7 @@ export async function mount (props) {
  */
 export async function unmount () {
   instance.$destroy()
+  instance.$el.innerHTML = ''
   instance = null
+  router = null
 }

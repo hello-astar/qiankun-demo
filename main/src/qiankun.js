@@ -5,15 +5,14 @@ import {
   initGlobalState
 } from 'qiankun'
 
-const app = '传给子项目们~'
 export default function () {
   registerMicroApps([
     {
       name: 'micro-vue',
       entry: '//localhost:2001',
-      container: '#root-vue',
+      container: '#subapp-viewport',
       activeRule: '/vue',
-      props: { app }
+      props: { msg: 'props to vue: 给vue子项目的props' }
     }
     // {
     //   name: 'micro-react',
@@ -22,15 +21,23 @@ export default function () {
     //   activeRule: '/react',
     //   props: { app }
     // }
-  ], {
-      beforeLoad: () => {
-        console.log('before load')
-        return Promise.resolve()
-      },
-      afterMount: () => {
-        console.log('after mount')
-        return Promise.resolve()
+  ],
+  {
+    beforeLoad: [
+      app => {
+        console.log('[LifeCycle] before load %c%s', 'color: green;', app.name);
       }
+    ],
+    beforeMount: [
+      app => {
+        console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name);
+      }
+    ],
+    afterMount: [
+      app => {
+        console.log('[LifeCycle] after unmount %c%s', 'color: green;', app.name);
+      }
+    ]
   })
 
   addGlobalUncaughtErrorHandler((event) => {
@@ -41,6 +48,7 @@ export default function () {
       }
   })
 
+  // 父组件传递globalstate
   const state = { msg: '通过globalstate，大家都可以用' }
   const actions = initGlobalState(state)
   actions.onGlobalStateChange((state, prev) => {
