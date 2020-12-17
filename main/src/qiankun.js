@@ -14,14 +14,14 @@ export default function () {
       container: '#subapp-viewport',
       activeRule: '/vue',
       props: { msg: 'props to vue: 给vue子项目的props' }
+    },
+    {
+      name: 'micro-react',
+      entry: '//localhost:2002',
+      container: '#subapp-viewport',
+      activeRule: '/react',
+      props: { msg: 'props to vue: 给vue子项目的props' }
     }
-    // {
-    //   name: 'micro-react',
-    //   entry: '//localhost:3000',
-    //   container: '#micro-react',
-    //   activeRule: '/react',
-    //   props: { app }
-    // }
   ],
   {
     beforeLoad: [
@@ -55,13 +55,8 @@ export default function () {
   actions.onGlobalStateChange((state, prev) => {
     // state: 变更后的状态; prev 变更前的状态
     console.log(state, prev)
-  })
+  }, true)
   actions.setGlobalState(state)
-
-  actions.onGlobalStateChange((state, prev) => {
-    // state: 变更后的状态; prev 变更前的状态
-    console.log(state, prev)
-  })
 
   setDefaultMountApp('/vue')
 

@@ -48,7 +48,7 @@ export async function mount (props) {
   console.log('通过props传递信息', props)
   props.onGlobalStateChange && props.onGlobalStateChange((state, prev) => {
     console.log(state, prev)
-  })
+  }, true);
   props.setGlobalState && props.setGlobalState({ msg: 'vue子应用修改globalstate' })
   render(props)
 }
