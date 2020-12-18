@@ -13,14 +13,18 @@ export default function () {
       entry: '//localhost:2001',
       container: '#subapp-viewport',
       activeRule: '/vue',
-      props: { msg: 'props to vue: 给vue子项目的props' }
+      props: {
+        msg: 'props to vue: 给vue子项目的props'
+      }
     },
     {
       name: 'micro-react',
       entry: '//localhost:2002',
       container: '#subapp-viewport',
       activeRule: '/react',
-      props: { msg: 'props to vue: 给vue子项目的props' }
+      props: {
+        msg: 'props to react: 给react子项目的props'
+      }
     }
   ],
   {
@@ -50,13 +54,12 @@ export default function () {
   })
 
   // 父组件传递globalstate
-  const state = { msg: '通过globalstate，大家都可以用' }
-  const actions = initGlobalState(state)
+  const actions = initGlobalState({ msg: '通过globalstate，大家都可以用' })
   actions.onGlobalStateChange((state, prev) => {
-    // state: 变更后的状态; prev 变更前的状态
     console.log(state, prev)
   }, true)
-  actions.setGlobalState(state)
+
+  // actions.setGlobalState(state)
 
   setDefaultMountApp('/vue')
 

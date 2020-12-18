@@ -1,4 +1,7 @@
 const { name } = require('./package');
+const path = require('path');
+const resolve = (dir, sourceDir = __dirname) => path.join(sourceDir, dir);
+
 
 module.exports = {
   webpack: config => {
@@ -7,6 +10,9 @@ module.exports = {
     config.output.jsonpFunction = `webpackJsonp_${name}`;
     config.output.globalObject = 'window';
 
+    config.resolve.alias = {
+      '@': resolve('src'),
+    }
     return config;
   },
 
@@ -21,5 +27,5 @@ module.exports = {
     config.liveReload = false;
 
     return config;
-  },
+  }
 };

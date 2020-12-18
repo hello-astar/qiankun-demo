@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-const Home = lazy(() => import('../pages/Home'));
+const Home = lazy(() => import('@/pages/Home'));
 
 function RouterConfig () {
   return (
