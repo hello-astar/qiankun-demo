@@ -28,7 +28,7 @@ export async function mount (props) {
   props.onGlobalStateChange && props.onGlobalStateChange((value, prev) => {
     console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev);
   }, true);
-  props.setGlobalState({ from: 'react16' });
+  props.setGlobalState && props.setGlobalState({ msg: 'react16' });
   render(props);
 }
 

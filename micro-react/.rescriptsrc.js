@@ -10,11 +10,7 @@ module.exports = {
     return config;
   },
 
-  devServer: _ => {
-    const config = _;
-
-    config.port = 2002;
-
+  devServer: config => {
     config.headers = {
       'Access-Control-Allow-Origin': '*',
     };
