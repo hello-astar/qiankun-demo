@@ -11,6 +11,7 @@ function RouterConfig () {
           {appRouterConfig.map(item => (
             <Route key={item.path} path={item.path} component={lazy(() => import(`@/pages/${item.component}`))}></Route>
           ))}
+          <Route path="/*" component={lazy(() => import('@/pages/404'))}></Route>
         </Switch>
       </Suspense>
     </Router>

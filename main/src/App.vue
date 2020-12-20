@@ -8,7 +8,8 @@
         </div>
       </aside>
       <main class="layout-main">
-        <div id="subapp-viewport"></div>
+        <div id="subapp-viewport" v-show="!$route.name"></div>
+        <router-view v-show="$route.name"></router-view>
       </main>
     </div>
   </div>
@@ -44,18 +45,24 @@ export default {
     position: relative;
     flex: 1;
     padding-left: 200px;
+    overflow: auto;
   }
   &-aside {
     position: absolute;
     left: 0;
     top: 0;
     background-color: #D3DCE6;
+    box-shadow:rgba(0, 0, 0, 0.2) 1px 1px 8px 1px;
     color: #333;
     text-align: center;
     height: 100%;
     width: 200px;
     &-item {
       line-height: 45px;
+      cursor: pointer;
+      &:hover {
+        background: rgb(212, 211, 211);
+      }
     }
   }
   &-main {

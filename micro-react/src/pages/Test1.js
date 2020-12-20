@@ -1,6 +1,8 @@
+import './test1.css';
+
 function Test1 () {
   return (
-    <div className="App">
+    <div className="test1">
       886
     </div>
   )

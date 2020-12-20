@@ -1,4 +1,4 @@
-// 2020/12/20 下午5:14:54从bin/start.js自动生成
+// 2020/12/20 下午6:28:37从bin/start.js自动生成
 export default [
   {
     'name': 'vue-home',
