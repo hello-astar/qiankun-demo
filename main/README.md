@@ -1,4 +1,4 @@
-# test-micro
+# main-micro - the basic project for this project
 
 ## Project setup
 ```

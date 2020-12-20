@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import { Suspense, lazy } from 'react';
-const Home = lazy(() => import('@/pages/Home'));
+import appRouterConfig from './appRouterConfig';
 
 function RouterConfig () {
   return (
@@ -8,7 +8,9 @@ function RouterConfig () {
       <Suspense fallback={<div>Loading...</div>}>
         <Switch>
           <Route path="/" exact render={() => (<Redirect to="/index"></Redirect>)}></Route>
-          <Route path="/index" component={Home}></Route>
+          {appRouterConfig.map(item => (
+            <Route key={item.path} path={item.path} component={lazy(() => import(`@/pages/${item.component}`))}></Route>
+          ))}
         </Switch>
       </Suspense>
     </Router>
