@@ -45,7 +45,7 @@ export async function bootstrap () {
 }
 
 export async function mount (props) {
-  console.log('[vue] vue app mount')
+  console.log('[vue] vue app mount', props.test)
   props.onGlobalStateChange && props.onGlobalStateChange((state, prev) => {
     console.log(state, prev)
   }, true);

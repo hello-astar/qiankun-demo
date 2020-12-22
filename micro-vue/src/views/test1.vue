@@ -1,10 +1,5 @@
 <template>
-  <div class="test1">
+  <div>
     test1
   </div>
 </template>
-<style>
-.test1 {
-  color: yellow;
-}
-</style>

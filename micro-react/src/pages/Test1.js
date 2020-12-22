@@ -1,5 +1,3 @@
-import './test1.css';
-
 function Test1 () {
   return (
     <div className="test1">

@@ -14,7 +14,7 @@ export default function () {
       container: '#subapp-viewport',
       activeRule: '/vue',
       props: {
-        msg: 'props to vue: 给vue子项目的props'
+        test: 'props to vue: 给vue子项目的props'
       }
     },
     {
@@ -23,7 +23,7 @@ export default function () {
       container: '#subapp-viewport',
       activeRule: '/react',
       props: {
-        msg: 'props to react: 给react子项目的props'
+        test: 'props to react: 给react子项目的props'
       }
     }
   ],

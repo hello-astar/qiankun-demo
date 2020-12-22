@@ -1,4 +1,4 @@
-// 2020/12/21 上午9:44:14从bin/start.js自动生成
+// 2020/12/22 上午10:44:44从bin/start.js自动生成
 export default [
   {
     'name': 'vue-home',
@@ -39,7 +39,8 @@ export default [
     'name': 'react-test2',
     'path': '/react/test2',
     'meta': {
-      'title': 'react test2'
+      'title': 'react test2',
+      'hidden': false
     }
   }
 ]

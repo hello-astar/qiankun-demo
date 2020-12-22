@@ -3,9 +3,11 @@
     <header class="layout-header">DEMO</header>
     <div class="layout-container">
       <aside class="layout-aside">
-        <div class="layout-aside-item" v-for="(item, index) in sideMenuConfig" :key="item.name + index" @click="$router.push(item.path)">
-          {{item.name}}
-        </div>
+        <template v-for="(item, index) in sideMenuConfig">
+          <div class="layout-aside-item" :key="item.name + index" @click="$router.push(item.path)" v-if="!(item.meta && item.meta.hidden)">
+            {{item.name}}
+          </div>
+        </template>
       </aside>
       <main class="layout-main">
         <div id="subapp-viewport" v-show="!$route.name"></div>
