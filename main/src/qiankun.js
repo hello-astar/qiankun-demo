@@ -7,12 +7,13 @@ import {
 } from 'qiankun'
 
 export default function () {
+  // 注册子应用
   registerMicroApps([
     {
-      name: 'micro-vue',
-      entry: '//localhost:2001',
-      container: '#subapp-viewport',
-      activeRule: '/vue',
+      name: 'micro-vue', // 子应用名
+      entry: '//localhost:2001', // 入口地址
+      container: '#subapp-viewport', // 渲染位置（此处表示渲染于主应用的subapp-viewport容器内）
+      activeRule: '/vue', // 分配给子应用的路由，当主应用跳转到/vue下时，当前子应用启动
       props: {
         test: 'props to vue: 给vue子项目的props'
       }
@@ -20,7 +21,7 @@ export default function () {
     {
       name: 'micro-react',
       entry: '//localhost:2002',
-      container: '#subapp-viewport',
+      container: '#subapp-viewport', // 可为子应用分配不同的container，本次将不示例
       activeRule: '/react',
       props: {
         test: 'props to react: 给react子项目的props'
