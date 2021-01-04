@@ -23,7 +23,7 @@ export async function bootstrap () {
 }
 
 export async function mount (props) {
-  console.log('[react16] props from main framework', props);
+  console.log('[react16] react app mount, props from main framework', props);
   props.onGlobalStateChange && props.onGlobalStateChange((value, prev) => {
     console.log(`[onGlobalStateChange - ${props.name}]:`, value, prev);
   }, true);
@@ -32,6 +32,7 @@ export async function mount (props) {
 }
 
 export async function unmount (props) {
+  console.log('[react16] react app unmount, props from main framework', props)
   const { container } = props;
   ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
 }
