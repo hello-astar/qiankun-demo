@@ -9,10 +9,12 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "custom-event-polyfill": "^1.0.7",
     "element-ui": "^2.14.1",
     "qiankun": "^2.3.3",
     "vue": "^2.6.11",
-    "vue-router": "^3.4.9"
+    "vue-router": "^3.4.9",
+    "whatwg-fetch": "^3.5.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.5.0",
