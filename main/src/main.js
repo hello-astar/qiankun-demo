@@ -10,7 +10,9 @@ import '@/components/elementui.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/assets/styles/common.scss'
 import startQiankun from './qiankun'
-import VueRouter from 'vue-router';
+import VueRouter from 'vue-router'
+import routerConfig from '@/router'
+import sideMenuConfig from './sideMenu'
 
 Vue.config.productionTip = false
 
@@ -25,11 +27,27 @@ VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
 
+let router = new VueRouter({
+  base: '/',
+  mode: 'history',
+  routes: routerConfig
+})
+
+router.beforeEach((to, from, next) => {
+  let childrenPath = ['/vue', '/react']
+  console.log(to.name, to.path, sideMenuConfig)
+  if (to.name) {
+    next();
+  }
+  else if (childrenPath.some((item) => to.path.includes(item))) {
+    next();
+  } else {
+    next({ name: '404' });
+  }
+});
+
 new Vue({
-  router: new VueRouter({
-    mode: 'history',
-    routes: []
-  }),
+  router,
   render: h => h(App),
 }).$mount('#app')
 

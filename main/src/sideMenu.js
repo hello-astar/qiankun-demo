@@ -1,4 +1,4 @@
-// 2021/1/5 下午3:27:33从bin/start.js自动生成
+// 2021/5/12 上午12:52:54从bin/start.js自动生成
 export default [
   {
     'name': 'vue-home',
@@ -8,18 +8,29 @@ export default [
     }
   },
   {
-    'name': 'vue-test1',
-    'path': '/vue/test1',
+    'name': 'vue-test',
+    'path': '/vue/test',
     'meta': {
-      'title': 'vue test1'
-    }
-  },
-  {
-    'name': 'vue-test2',
-    'path': '/vue/test2',
-    'meta': {
-      'title': 'vue test2'
-    }
+      'title': 'vue test'
+    },
+    'children': [
+      {
+        'path': '/vue/test/test1',
+        'name': 'vue-test1',
+        'component': 'test1.vue',
+        'meta': {
+          'title': 'vue test1'
+        }
+      },
+      {
+        'path': '/vue/test/test2',
+        'name': 'vue-test2',
+        'component': 'test2.vue',
+        'meta': {
+          'title': 'vue test2'
+        }
+      }
+    ]
   },
   {
     'name': 'react-home',

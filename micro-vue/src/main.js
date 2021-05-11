@@ -1,3 +1,10 @@
+/*
+ * @Description: 
+ * @Author: astar
+ * @Date: 2021-01-11 19:43:22
+ * @LastEditTime: 2021-05-11 22:48:27
+ * @LastEditors: astar
+ */
 /* eslint-disable no-undef */
 import Vue from 'vue'
 import App from './App.vue'
@@ -27,6 +34,14 @@ function render (props = {}) {
     mode: 'history',
     routes: routerConfig
   })
+
+  router.beforeEach((to, from, next) => {
+    if (!to.name) {
+      location.href = '/404'
+    } else {
+      next();
+    }
+  });
 
   // 由于主应用渲染在#app上，为防止换用，增加判断，若使用了qiankun，则将子应用渲染在container下的#app中，若没有使用，则直接渲染在body下的#app中
   // 也可以为当前子应用定制一个不同名的渲染位置，但要同时修改子应用index.html和app.vue的id并且保证不跟主应用的id冲突

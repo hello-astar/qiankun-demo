@@ -28,7 +28,22 @@ const createSideMenu = () => {
 
   config.forEach(item => {
     const appRouterConfig = require(path.join(__dirname, `../${item.name}/src/router/appRouterConfig.js`));
-    content = content.concat(appRouterConfig.default.map(ele => ({ name: ele.name, path: item.activeRule + ele.path, meta: ele.meta })));
+    content = content.concat(
+      appRouterConfig.default.map(ele => {
+        let config = {
+          name: ele.name,
+          path: item.activeRule + ele.path,
+          meta: ele.meta
+        }
+        if (ele.children && ele.children.length) {
+          config.children = ele.children.map(child => ({
+            ...child,
+            path: item.activeRule + ele.path + '/' + child.path
+          }))
+        }
+        return config
+      })
+    );
   })
   fs.writeFileSync(path.join(__dirname, '../main/src/sideMenu.js'), tips + '\n' + `export default ${JSON.stringify(content, null, 2)}\n`.replace(/\"/g, "\'"));
 }
