@@ -41,6 +41,13 @@ export async function unmount (props) {
   ReactDOM.unmountComponentAtNode(container ? container.querySelector('#root') : document.querySelector('#root'));
 }
 
+// 增加 update 钩子以便主应用手动更新微应用
+export async function update(props) {
+    console.log(props)
+    debugger
+    // renderPatch(props);
+  }
+
 // ReactDOM.render(
 //   <React.StrictMode>
 //     <RouterConfig></RouterConfig>

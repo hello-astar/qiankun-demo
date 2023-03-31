@@ -17,9 +17,9 @@ export default [
     path: '/test',
     component: 'test.vue',
     meta: { title: 'vue test' },
-    children: [
-      { path: 'test1', name: 'vue-test1', component: 'test1.vue', meta: { title: 'vue test1' } },
-      { path: 'test2', name: 'vue-test2', component: 'test2.vue', meta: { title: 'vue test2' } }
-    ]
+    // children: [
+    //   { path: 'test1', name: 'vue-test1', component: 'test1.vue', meta: { title: 'vue test1' } },
+    //   { path: 'test2', name: 'vue-test2', component: 'test2.vue', meta: { title: 'vue test2' } }
+    // ]
   }
 ]

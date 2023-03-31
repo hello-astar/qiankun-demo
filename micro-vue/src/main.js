@@ -23,6 +23,7 @@ function render (props = {}) {
   
   if (props) {
     // Vue.prototype.$app = props // 将props挂在prototype上
+    Vue.prototype.loadMicroApp = props.loadMicroApp
   }
 
 

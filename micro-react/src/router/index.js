@@ -3,7 +3,7 @@ import { Suspense, lazy } from 'react';
 import appRouterConfig from './appRouterConfig';
 
 function NotFound () {
-  location.href = '/404'
+//   location.href = '/404'
   return null
 }
 // 嵌套组件
